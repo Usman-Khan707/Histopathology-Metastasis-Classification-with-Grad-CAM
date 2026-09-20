@@ -1,6 +1,6 @@
-# Metastasis Detection in Lymph Node Histopathology via CNN Classification and Grad-CAM Interpretability
+# Histopathology Metastasis Classification with Grad-CAM
 
-Deployed demo — [🔗 Live app](https://histopathology-image-classification-ml.streamlit.app)
+Repository: [github.com/Usman-Khan707/Histopathology-Metastasis-Classification-with-Grad-CAM](https://github.com/Usman-Khan707/Histopathology-Metastasis-Classification-with-Grad-CAM)
 
 *"That which is measured, improves." — Karl Pearson*
 
@@ -133,7 +133,7 @@ Grad-CAM is implemented twice in this repository with minor variations: once as 
 
 ## 7. Interactive Application
 
-The trained model is served through a Streamlit application (`app.py`, deployed at the link above) that allows a user to:
+The trained model is served through a Streamlit application (`app.py`) that allows a user to:
 
 - Upload one or more tissue patch images (PNG/JPG) for batch inference.
 - Toggle a Grad-CAM overlay and adjust its opacity via a slider.
@@ -169,8 +169,8 @@ The results above (71% accuracy, 0.54 tumor recall) should be read in the contex
 
 ```bash
 # Clone the repository
-git clone https://github.com/BleeGleeWee/Histopathology-Image-Classification.git
-cd Histopathology-Image-Classification
+git clone https://github.com/Usman-Khan707/Histopathology-Metastasis-Classification-with-Grad-CAM.git
+cd Histopathology-Metastasis-Classification-with-Grad-CAM
 
 # Create a virtual environment
 python -m venv venv
@@ -207,7 +207,7 @@ This repository tracks `histopath_model.h5` via **Git LFS** (see `.gitattributes
 ## 11. Repository Structure
 
 ```
-Histopathology-Image-Classification/
+Histopathology-Metastasis-Classification-with-Grad-CAM/
 │
 ├── data/
 │   ├── camelyonpatch_level_2_split_train_y.h5   # official train labels (image arrays not included — see dataset.md)
