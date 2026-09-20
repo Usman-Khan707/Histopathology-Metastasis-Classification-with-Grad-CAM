@@ -1,0 +1,39 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+ENV/
+env/
+*.env
+
+# Dataset files (large .h5 files)
+data/*.h5
+data/*.gz
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# PyCharm / VSCode settings
+.idea/
+
+
+histopath_model.h5
+*.h5
+
+.vscode/
+
+# Output images or plots (optional)
+images/*.png
+images/*.jpg
