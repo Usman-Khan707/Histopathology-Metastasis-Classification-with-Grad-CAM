@@ -31,6 +31,7 @@ PCam is a benchmark derived from the [CAMELYON16]([https://camelyon16.grand-chal
 | Official split — Test | 32,768 patches (16,391 normal / 16,377 tumor) |
 
 Green boxes in the figure below mark tumor tissue in the center region, which determines the positive label:
+<img width="1600" height="400" alt="image" src="https://github.com/user-attachments/assets/6de001d3-2517-4bc4-ac9b-e2355c519f82" />
 
 
 > Because the center-region labeling rule decouples the label from the *entire* visual content of the patch, a portion of the classification difficulty is attributable to the dataset design itself, not only to model capacity — informative context can sit just outside the labeled region.
