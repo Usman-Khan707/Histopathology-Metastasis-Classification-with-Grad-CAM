@@ -1,9 +1,5 @@
 # Histopathology Metastasis Classification with Grad-CAM
 
-Repository: [github.com/Usman-Khan707/Histopathology-Metastasis-Classification-with-Grad-CAM](https://github.com/Usman-Khan707/Histopathology-Metastasis-Classification-with-Grad-CAM)
-
-*"That which is measured, improves." — Karl Pearson*
-
 ## Abstract
 
 Metastasis in regional lymph nodes is a key determinant of breast cancer staging, and its manual detection from whole-slide histopathology images is labor-intensive and subject to inter-observer variability. This project implements and evaluates a convolutional neural network (CNN) for binary classification of lymph node histopathology patches as **normal** or **metastatic (tumor)** tissue, using the **PatchCamelyon (PCam)** benchmark derived from the CAMELYON16 challenge dataset. A ResNet50 architecture is trained end-to-end (no ImageNet pretraining) on a stratified subset of PCam and evaluated using standard classification metrics. To address the interpretability requirements of clinical decision-support tools, we integrate **Gradient-weighted Class Activation Mapping (Grad-CAM)** to visualize the spatial regions driving each prediction. The trained model is packaged into an interactive Streamlit application supporting batch inference and heatmap overlay. We report the model's quantitative performance, characterize its class-wise error behavior, and discuss the specific factors — reduced-scale training, limited epochs, and no pretrained initialization — that bound current performance and motivate directions for future work.
@@ -23,7 +19,7 @@ The project has two intertwined goals:
 
 ## 2. Dataset: PatchCamelyon (PCam)
 
-PCam is a benchmark derived from the [CAMELYON16](https://camelyon16.grand-challenge.org/) challenge dataset of H&E-stained lymph node whole-slide images. It reformulates whole-slide metastasis detection as a tractable patch-level binary classification problem — described by its authors as **"bigger than CIFAR-10, smaller than ImageNet, and trainable on a single GPU."**
+PCam is a benchmark derived from the [CAMELYON16]([https://camelyon16.grand-challenge.org/](https://camelyon16.grand-challenge.org/)) challenge dataset of H&E-stained lymph node whole-slide images. It reformulates whole-slide metastasis detection as a tractable patch-level binary classification problem — described by its authors as **"bigger than CIFAR-10, smaller than ImageNet, and trainable on a single GPU."**
 
 | Property | Value |
 |---|---|
@@ -36,9 +32,6 @@ PCam is a benchmark derived from the [CAMELYON16](https://camelyon16.grand-chall
 
 Green boxes in the figure below mark tumor tissue in the center region, which determines the positive label:
 
-![pcam](https://github.com/user-attachments/assets/b8ef1762-de38-4747-a648-914b075b1b35)
-
-**Dataset repository:** [github.com/basveeling/pcam](https://github.com/basveeling/pcam)
 
 > Because the center-region labeling rule decouples the label from the *entire* visual content of the patch, a portion of the classification difficulty is attributable to the dataset design itself, not only to model capacity — informative context can sit just outside the labeled region.
 
@@ -183,28 +176,8 @@ pip install -r requirements.txt
 
 ---
 
-## 10. Usage
 
-1. Download the PCam `.h5` files from [github.com/basveeling/pcam](https://github.com/basveeling/pcam) (see `data/dataset.md` for the specific Google Drive link and required files — only the six `.h5` files, ~26 GB uncompressed, are needed, not the `.gz` archives).
-2. Place them inside the `data/` folder, matching the naming convention `camelyonpatch_level_2_split_{train,valid,test}_{x,y}.h5`.
-3. Open `train_pcam.ipynb` and run it top-to-bottom to:
-   - Load and normalize the data
-   - Build and train the CNN (`model.py`)
-   - Evaluate on the held-out subset
-   - Generate Grad-CAM visualizations (`gradcam.py`)
-4. To run the interactive demo locally: `streamlit run app.py` (requires `histopath_model.h5` — see the note below).
-
-### A note on `.h5` files and memory
-
-Loading the full-resolution image arrays (`*_x.h5`) into memory at once can raise a `MemoryError` on machines with limited RAM, since the full training array alone is several gigabytes. Prefer `h5py` in streaming mode or Keras' `HDF5Matrix`/generator-based loading for the full dataset; the notebook's slicing pattern (`f["x"][:20000]`) is a simple way to work with a bounded subset during development.
-
-### A note on the packaged model weights
-
-This repository tracks `histopath_model.h5` via **Git LFS** (see `.gitattributes`). If you obtain the repository as a plain `.zip` download (rather than via `git clone` with LFS support), `histopath_model.h5` will be a small Git LFS *pointer file* rather than the actual ~287 MB weight file, and `app.py` will fail to load it. Clone with Git LFS enabled, or retrain using `train_pcam.ipynb` and save your own weights, to run the app locally.
-
----
-
-## 11. Repository Structure
+## 10. Repository Structure
 
 ```
 Histopathology-Metastasis-Classification-with-Grad-CAM/
