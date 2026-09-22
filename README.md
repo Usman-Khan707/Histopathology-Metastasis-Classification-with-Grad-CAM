@@ -230,8 +230,3 @@ Please open an issue or pull request with proposed changes.
 
 4. He, K., Zhang, X., Ren, S., & Sun, J. (2016). *Deep Residual Learning for Image Recognition*. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 770–778.
 
----
-
-## License
-
-Released under the [MIT License](LICENSE).
